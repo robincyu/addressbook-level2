@@ -20,6 +20,7 @@ import seedu.addressbook.commands.FindCommand;
 import seedu.addressbook.commands.HelpCommand;
 import seedu.addressbook.commands.IncorrectCommand;
 import seedu.addressbook.commands.ListCommand;
+import seedu.addressbook.commands.SortCommand;
 import seedu.addressbook.commands.ViewAllCommand;
 import seedu.addressbook.commands.ViewCommand;
 import seedu.addressbook.data.exception.IllegalValueException;
@@ -88,6 +89,9 @@ public class Parser {
         case ListCommand.COMMAND_WORD:
             return new ListCommand();
 
+        case SortCommand.COMMAND_WORD:
+            return prepareSort(arguments);
+
         case ViewCommand.COMMAND_WORD:
             return prepareView(arguments);
 
@@ -133,6 +137,26 @@ public class Parser {
         } catch (IllegalValueException ive) {
             return new IncorrectCommand(ive.getMessage());
         }
+    }
+
+    /**
+     * Parses arguments in the context of the sort person command.
+     *
+     * @param args full command args string
+     * @return the prepared command
+     */
+    private Command prepareSort(String args) {
+        // The only valid argument is "desc".
+        args = args.trim();
+        System.out.println("#" + args);
+        boolean sortIsAscending;
+        if (args.equals(""))
+            sortIsAscending = true;
+        else if (args.equals("desc"))
+            sortIsAscending = false;
+        else
+            return new IncorrectCommand(String.format(MESSAGE_INVALID_COMMAND_FORMAT, SortCommand.MESSAGE_USAGE));
+        return new SortCommand(sortIsAscending);
     }
 
     /**
@@ -227,7 +251,6 @@ public class Parser {
         }
         return Integer.parseInt(matcher.group("targetIndex"));
     }
-
 
     /**
      * Parses arguments in the context of the find person command.
