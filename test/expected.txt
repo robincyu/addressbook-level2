@@ -19,6 +19,9 @@
 || Example: find alice bob charlie
 || list: Displays all persons in the address book as a list with index numbers.
 || Example: list
+|| sort: Sorts the address book. Sorts in ascending order of name by default, pass 'desc' to sort descending.
+|| Parameters: [desc]
+|| Example: sort desc
 || view: Views the non-private details of the person identified by the index number in the last shown person listing.
 || Parameters: INDEX
 || Example: view 1
@@ -289,6 +292,29 @@
 || 	2. Dickson Ee Phone: 444444 Address: 444, delta street Tags: [friends]
 || 
 || 2 persons listed!
+|| ===================================================
+|| Enter command: || [Command entered:  add Chitose Karasuma p/88886666 e/chitose@gmail.com a/Tokyo]
+|| New person added: Chitose Karasuma Phone: 88886666 Email: chitose@gmail.com Address: Tokyo Tags: 
+|| ===================================================
+|| Enter command: || [Command entered:  sort]
+|| Address book sorted in ascending order.
+|| ===================================================
+|| Enter command: || [Command entered:  list]
+|| 	1. Betsy Choo Tags: [secretive]
+|| 	2. Chitose Karasuma Phone: 88886666 Email: chitose@gmail.com Address: Tokyo Tags: 
+|| 	3. Dickson Ee Phone: 444444 Address: 444, delta street Tags: [friends]
+|| 
+|| 3 persons listed!
+|| ===================================================
+|| Enter command: || [Command entered:  sort desc]
+|| Address book sorted in descending order.
+|| ===================================================
+|| Enter command: || [Command entered:  list]
+|| 	1. Dickson Ee Phone: 444444 Address: 444, delta street Tags: [friends]
+|| 	2. Chitose Karasuma Phone: 88886666 Email: chitose@gmail.com Address: Tokyo Tags: 
+|| 	3. Betsy Choo Tags: [secretive]
+|| 
+|| 3 persons listed!
 || ===================================================
 || Enter command: || [Command entered:  clear]
 || Address book has been cleared!
