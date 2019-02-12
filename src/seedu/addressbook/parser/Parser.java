@@ -148,7 +148,6 @@ public class Parser {
     private Command prepareSort(String args) {
         // The only valid argument is "desc".
         args = args.trim();
-        System.out.println("#" + args);
         boolean sortIsAscending;
         if (args.equals(""))
             sortIsAscending = true;

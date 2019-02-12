@@ -54,6 +54,10 @@ public class AddressBook {
         allPersons.remove(toRemove);
     }
 
+    public void sort(boolean ascendingOrder) {
+        allPersons.sort(ascendingOrder);
+    }
+
     /**
      * Clears all persons and tags from the address book.
      */

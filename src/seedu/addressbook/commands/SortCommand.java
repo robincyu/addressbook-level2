@@ -17,17 +17,15 @@ public class SortCommand extends Command {
     private static final Boolean ASCENDING = true;
     private static final Boolean DESCENDING = false;
 
-    public SortCommand(boolean sortOrder) {
-        if (sortOrder == ASCENDING) {
-            System.out.println("Hello, the value of SortOrder is: " + sortOrder);
-        }
-        if (sortOrder == DESCENDING) {
-            System.out.println("Hello, the value of SortOrder is: " + sortOrder);
-        }
+    private final Boolean sortOrder;
+
+    public SortCommand(boolean ascendingOrder) {
+        this.sortOrder = (ascendingOrder ? ASCENDING : DESCENDING);
     }
 
     @Override
     public CommandResult execute() {
-        return new CommandResult(MESSAGE_SUCCESS);
+        addressBook.sort(sortOrder);
+        return new CommandResult(String.format(MESSAGE_SUCCESS, (sortOrder == ASCENDING ? "ascending" : "descending")));
     }
 }
